@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "/workspaces/mnist-serving/backend",
+    "files.associations": {
+        "iostream": "cpp"
+    }
+}

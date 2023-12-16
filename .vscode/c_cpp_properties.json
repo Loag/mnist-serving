@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/backend/**",
+                "${workspaceFolder}/backend/include/**"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/backend/**",
+                    "${workspaceFolder}/backend/include/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        }
+    ],
+    "version": 4
+}
