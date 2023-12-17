@@ -4,18 +4,19 @@
     "features": {
         "ghcr.io/loag/cmake-feature/cmake:latest": {},
         "ghcr.io/devcontainers/features/python": {},
-        "ghcr.io/devcontainers/features/go": {},
-        "ghcr.io/devcontainers-contrib/features/protoc": {}
+        "ghcr.io/devcontainers/features/go": {}
     },
 
     "customizations": {
-        "extensions": [
-            "ms-vscode.cpptools",
-            "twxs.cmake",
-            "golang.go",
-            "ms-python.python",
-            "ms-python.vscode-pylance",
-            "zxh404.vscode-proto3"
-        ]
+        "codespaces": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "golang.go",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "zxh404.vscode-proto3"
+            ]
+        },
     }
 }

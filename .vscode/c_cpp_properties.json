@@ -4,12 +4,14 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/backend/**",
-                "${workspaceFolder}/backend/include/**"
+                "${workspaceFolder}/backend/include/**",
+                "/usr/include/**"
             ],
             "browse": {
                 "path": [
                     "${workspaceFolder}/backend/**",
-                    "${workspaceFolder}/backend/include/**"
+                    "${workspaceFolder}/backend/include/**",
+                    "/usr/include/**"
                 ],
                 "limitSymbolsToIncludedHeaders": true
             }

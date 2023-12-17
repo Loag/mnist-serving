@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package routing;
+option go_package = ".;routing";
+
+service InferenceService {
+    rpc Infer (InferenceRequest) returns (InferenceResponse);
+}
+
+message InferenceRequest {
+    bytes file = 1;
+}
+
+message InferenceResponse {
+    string number = 1;
+}
