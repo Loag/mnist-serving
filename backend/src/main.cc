@@ -7,7 +7,7 @@
 using namespace std;
 using namespace routing;
 
-const ORTCHAR_T* model_path = "model.onnx"; // Replace "model.onnx" with the actual model file path
+const ORTCHAR_T* model_path = "mnist.onnx"; // Replace "model.onnx" with the actual model file path
 Ort::Session session_{nullptr};
 auto memory_info = Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeCPU);
 
@@ -26,33 +26,38 @@ static void softmax(std::array<float, 10>& input) {
 class InferenceRPC final : public InferenceService::Service {
     grpc::Status Infer(grpc::ServerContext* context, const InferenceRequest* request, InferenceResponse* response) override {
 
-        vector<float> filedata(request->file().begin(), request->file().end());
-        vector<int64_t> input_tensor_shape = {1, 784};
+        try {
+            vector<float> filedata(request->file().begin(), request->file().end());
+            vector<int64_t> input_tensor_shape = {1, 784};
 
-        Ort::Value input_tensor_ = Ort::Value::CreateTensor<float>(
-            memory_info,                  // You need to define memory_info
-            filedata.data(),   // Pointer to the data vector
-            filedata.size(),   // Size of the data vector
-            input_tensor_shape.data(),    // Pointer to the shape vector
-            input_tensor_shape.size()     // Size of the shape vector
-        );    
+            Ort::Value input_tensor_ = Ort::Value::CreateTensor<float>(
+                memory_info,                  // You need to define memory_info
+                filedata.data(),   // Pointer to the data vector
+                filedata.size(),   // Size of the data vector
+                input_tensor_shape.data(),    // Pointer to the shape vector
+                input_tensor_shape.size()     // Size of the shape vector
+            );    
 
-        const char* input_names[] = {"Input3"};
-        const char* output_names[] = {"Plus214_Output_0"};
+            const char* input_names[] = {"Input3"};
+            const char* output_names[] = {"Plus214_Output_0"};
 
-        std::array<float, 10> results_{};
-        std::array<int64_t, 2> output_shape_{1, 10};
+            std::array<float, 10> results_{};
+            std::array<int64_t, 2> output_shape_{1, 10};
 
-        auto output_tensor_ = Ort::Value::CreateTensor<float>(memory_info, results_.data(), results_.size(),
-                                                        output_shape_.data(), output_shape_.size());
+            auto output_tensor_ = Ort::Value::CreateTensor<float>(memory_info, results_.data(), results_.size(),
+                                                            output_shape_.data(), output_shape_.size());
 
-        session_.Run(Ort::RunOptions{nullptr}, input_names, &input_tensor_, 1, output_names, &output_tensor_, 1);
+            session_.Run(Ort::RunOptions{nullptr}, input_names, &input_tensor_, 1, output_names, &output_tensor_, 1);
 
-        softmax(results_);
-        int64_t result_ = std::distance(results_.begin(), std::max_element(results_.begin(), results_.end()));
+            softmax(results_);
+            int64_t result_ = std::distance(results_.begin(), std::max_element(results_.begin(), results_.end()));
 
-        response->set_number(to_string(result_));
-        return grpc::Status::OK;
+            response->set_number(to_string(result_));
+            return grpc::Status::OK;
+        } catch (const exception& err) {
+            cerr << "Error: " << err.what() << endl;
+            return grpc::Status::CANCELLED;
+        }
     }
 
     grpc::Status Available(grpc::ServerContext* context, const ::google::protobuf::Empty* request, IsAvailable* response) override {

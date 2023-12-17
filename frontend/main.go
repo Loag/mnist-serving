@@ -1,8 +1,8 @@
 package main
 
 import (
-	"io"
-
+	"image"
+	"image/jpeg"
 	pb "model_serving_frontend/routing"
 
 	"github.com/gin-gonic/gin"
@@ -10,6 +10,22 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
+
+func to_bytes(img image.Image) []byte {
+	// Convert the image to a byte slice
+	bounds := img.Bounds()
+	width, height := bounds.Max.X, bounds.Max.Y
+	imgBytes := make([]byte, 0, width*height*3) // 3 bytes for each pixel in RGB
+
+	for y := 0; y < height; y++ {
+		for x := 0; x < width; x++ {
+			r, g, b, _ := img.At(x, y).RGBA()
+			// Convert 16-bit color to 8-bit color
+			imgBytes = append(imgBytes, byte(r>>8), byte(g>>8), byte(b>>8))
+		}
+	}
+	return imgBytes
+}
 
 func main() {
 	conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
@@ -47,17 +63,19 @@ func main() {
 
 		defer file.Close()
 
-		bytes, err := io.ReadAll(file)
+		img, err := jpeg.Decode(file)
 		if err != nil {
-			c.JSON(500, gin.H{
-				"message": "Error reading file",
-			})
+			panic(err)
 		}
+
+		bytes := to_bytes(img)
+
 		res, err := inferenceClient.Infer(c, &pb.InferenceRequest{File: bytes})
 
 		if err != nil {
 			c.JSON(500, gin.H{
 				"message": "Error infering integer image",
+				"error":   err.Error(),
 			})
 		}
 
