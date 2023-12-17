@@ -38,8 +38,8 @@ class InferenceRPC final : public InferenceService::Service {
                 input_tensor_shape.size()     // Size of the shape vector
             );    
 
-            const char* input_names[] = {"Input3"};
-            const char* output_names[] = {"Plus214_Output_0"};
+            const char* input_names[] = {"onnx::Reshape_0"};
+            const char* output_names[] = {"13"};
 
             std::array<float, 10> results_{};
             std::array<int64_t, 2> output_shape_{1, 10};
@@ -52,7 +52,7 @@ class InferenceRPC final : public InferenceService::Service {
             softmax(results_);
             int64_t result_ = std::distance(results_.begin(), std::max_element(results_.begin(), results_.end()));
 
-            response->set_number(to_string(result_));
+            response->set_number(to_string(result_ + 1));
             return grpc::Status::OK;
         } catch (const exception& err) {
             cerr << "Error: " << err.what() << endl;
