@@ -15,6 +15,10 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 namespace routing {
+class IsAvailableDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<IsAvailable> _instance;
+} _IsAvailable_default_instance_;
 class InferenceRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<InferenceRequest> _instance;
@@ -52,11 +56,31 @@ static void InitDefaultsscc_info_InferenceResponse_service_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_InferenceResponse_service_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_InferenceResponse_service_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_service_2eproto[2];
+static void InitDefaultsscc_info_IsAvailable_service_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::routing::_IsAvailable_default_instance_;
+    new (ptr) ::routing::IsAvailable();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::routing::IsAvailable::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_IsAvailable_service_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_IsAvailable_service_2eproto}, {}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_service_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_service_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_service_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_service_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::routing::IsAvailable, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::routing::IsAvailable, isavailable_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::routing::InferenceRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -71,39 +95,242 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_service_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::routing::InferenceResponse, number_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::routing::InferenceRequest)},
-  { 6, -1, sizeof(::routing::InferenceResponse)},
+  { 0, -1, sizeof(::routing::IsAvailable)},
+  { 6, -1, sizeof(::routing::InferenceRequest)},
+  { 12, -1, sizeof(::routing::InferenceResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::routing::_IsAvailable_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::routing::_InferenceRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::routing::_InferenceResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_service_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\rservice.proto\022\007routing\" \n\020InferenceReq"
-  "uest\022\014\n\004file\030\001 \001(\014\"#\n\021InferenceResponse\022"
-  "\016\n\006number\030\001 \001(\t2R\n\020InferenceService\022>\n\005I"
-  "nfer\022\031.routing.InferenceRequest\032\032.routin"
-  "g.InferenceResponseB\013Z\t.;routingb\006proto3"
+  "\n\rservice.proto\022\007routing\032\033google/protobu"
+  "f/empty.proto\"\"\n\013IsAvailable\022\023\n\013IsAvaila"
+  "ble\030\001 \001(\010\" \n\020InferenceRequest\022\014\n\004file\030\001 "
+  "\001(\014\"#\n\021InferenceResponse\022\016\n\006number\030\001 \001(\t"
+  "2\215\001\n\020InferenceService\022>\n\005Infer\022\031.routing"
+  ".InferenceRequest\032\032.routing.InferenceRes"
+  "ponse\0229\n\tAvailable\022\026.google.protobuf.Emp"
+  "ty\032\024.routing.IsAvailableB\013Z\t.;routingb\006p"
+  "roto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_service_2eproto_deps[1] = {
+  &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_service_2eproto_sccs[2] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_service_2eproto_sccs[3] = {
   &scc_info_InferenceRequest_service_2eproto.base,
   &scc_info_InferenceResponse_service_2eproto.base,
+  &scc_info_IsAvailable_service_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_service_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_service_2eproto = {
-  false, false, descriptor_table_protodef_service_2eproto, "service.proto", 200,
-  &descriptor_table_service_2eproto_once, descriptor_table_service_2eproto_sccs, descriptor_table_service_2eproto_deps, 2, 0,
+  false, false, descriptor_table_protodef_service_2eproto, "service.proto", 325,
+  &descriptor_table_service_2eproto_once, descriptor_table_service_2eproto_sccs, descriptor_table_service_2eproto_deps, 3, 1,
   schemas, file_default_instances, TableStruct_service_2eproto::offsets,
-  file_level_metadata_service_2eproto, 2, file_level_enum_descriptors_service_2eproto, file_level_service_descriptors_service_2eproto,
+  file_level_metadata_service_2eproto, 3, file_level_enum_descriptors_service_2eproto, file_level_service_descriptors_service_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_service_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_service_2eproto)), true);
 namespace routing {
+
+// ===================================================================
+
+void IsAvailable::InitAsDefaultInstance() {
+}
+class IsAvailable::_Internal {
+ public:
+};
+
+IsAvailable::IsAvailable(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:routing.IsAvailable)
+}
+IsAvailable::IsAvailable(const IsAvailable& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  isavailable_ = from.isavailable_;
+  // @@protoc_insertion_point(copy_constructor:routing.IsAvailable)
+}
+
+void IsAvailable::SharedCtor() {
+  isavailable_ = false;
+}
+
+IsAvailable::~IsAvailable() {
+  // @@protoc_insertion_point(destructor:routing.IsAvailable)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void IsAvailable::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void IsAvailable::ArenaDtor(void* object) {
+  IsAvailable* _this = reinterpret_cast< IsAvailable* >(object);
+  (void)_this;
+}
+void IsAvailable::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void IsAvailable::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const IsAvailable& IsAvailable::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_IsAvailable_service_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void IsAvailable::Clear() {
+// @@protoc_insertion_point(message_clear_start:routing.IsAvailable)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  isavailable_ = false;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* IsAvailable::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // bool IsAvailable = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          isavailable_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* IsAvailable::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:routing.IsAvailable)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool IsAvailable = 1;
+  if (this->isavailable() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_isavailable(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:routing.IsAvailable)
+  return target;
+}
+
+size_t IsAvailable::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:routing.IsAvailable)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bool IsAvailable = 1;
+  if (this->isavailable() != 0) {
+    total_size += 1 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void IsAvailable::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:routing.IsAvailable)
+  GOOGLE_DCHECK_NE(&from, this);
+  const IsAvailable* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<IsAvailable>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:routing.IsAvailable)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:routing.IsAvailable)
+    MergeFrom(*source);
+  }
+}
+
+void IsAvailable::MergeFrom(const IsAvailable& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:routing.IsAvailable)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.isavailable() != 0) {
+    _internal_set_isavailable(from._internal_isavailable());
+  }
+}
+
+void IsAvailable::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:routing.IsAvailable)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void IsAvailable::CopyFrom(const IsAvailable& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:routing.IsAvailable)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool IsAvailable::IsInitialized() const {
+  return true;
+}
+
+void IsAvailable::InternalSwap(IsAvailable* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(isavailable_, other->isavailable_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata IsAvailable::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
 
 // ===================================================================
 
@@ -521,6 +748,9 @@ void InferenceResponse::InternalSwap(InferenceResponse* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace routing
 PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::routing::IsAvailable* Arena::CreateMaybeMessage< ::routing::IsAvailable >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::routing::IsAvailable >(arena);
+}
 template<> PROTOBUF_NOINLINE ::routing::InferenceRequest* Arena::CreateMaybeMessage< ::routing::InferenceRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::routing::InferenceRequest >(arena);
 }

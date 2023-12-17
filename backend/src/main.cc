@@ -12,6 +12,11 @@ class InferenceRPC final : public InferenceService::Service {
         response->set_number("1");
         return grpc::Status::OK;
     }
+
+    grpc::Status Available(grpc::ServerContext* context, const ::google::protobuf::Empty* request, IsAvailable* response) override {
+        response->set_isavailable(true);
+        return grpc::Status::OK;     
+    }
 };
 
 void RunServer() {

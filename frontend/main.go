@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/protobuf/types/known/emptypb"
 )
 
 func main() {
@@ -19,6 +20,21 @@ func main() {
 	inferenceClient := pb.NewInferenceServiceClient(conn)
 
 	router := gin.Default()
+
+	router.GET("/", func(c *gin.Context) {
+		res, err := inferenceClient.Available(c, &emptypb.Empty{})
+
+		if err != nil {
+			c.JSON(500, gin.H{
+				"message": "Error. backend not available.",
+			})
+		}
+
+		c.JSON(200, gin.H{
+			"message":   "success",
+			"available": res.IsAvailable,
+		})
+	})
 
 	router.POST("/upload", func(c *gin.Context) {
 
@@ -42,13 +58,14 @@ func main() {
 		if err != nil {
 			c.JSON(500, gin.H{
 				"message": "Error infering integer image",
-			})			
+			})
 		}
 
 		c.JSON(200, gin.H{
 			"message": "success",
-			"result": res.Number,
-		})	
+			"result":  res.Number,
+		})
 	})
+
 	router.Run(":8080")
 }

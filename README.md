@@ -6,6 +6,9 @@
 
 ``` bash
     sudo apt-get install libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc
+
+    # sys monitor
+    sudo apt-get install htop
 ```
 
 ``` bash

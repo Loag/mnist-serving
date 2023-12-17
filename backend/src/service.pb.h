@@ -32,6 +32,7 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/empty.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_service_2eproto
@@ -47,7 +48,7 @@ struct TableStruct_service_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -61,14 +62,155 @@ extern InferenceRequestDefaultTypeInternal _InferenceRequest_default_instance_;
 class InferenceResponse;
 class InferenceResponseDefaultTypeInternal;
 extern InferenceResponseDefaultTypeInternal _InferenceResponse_default_instance_;
+class IsAvailable;
+class IsAvailableDefaultTypeInternal;
+extern IsAvailableDefaultTypeInternal _IsAvailable_default_instance_;
 }  // namespace routing
 PROTOBUF_NAMESPACE_OPEN
 template<> ::routing::InferenceRequest* Arena::CreateMaybeMessage<::routing::InferenceRequest>(Arena*);
 template<> ::routing::InferenceResponse* Arena::CreateMaybeMessage<::routing::InferenceResponse>(Arena*);
+template<> ::routing::IsAvailable* Arena::CreateMaybeMessage<::routing::IsAvailable>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace routing {
 
 // ===================================================================
+
+class IsAvailable PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:routing.IsAvailable) */ {
+ public:
+  inline IsAvailable() : IsAvailable(nullptr) {};
+  virtual ~IsAvailable();
+
+  IsAvailable(const IsAvailable& from);
+  IsAvailable(IsAvailable&& from) noexcept
+    : IsAvailable() {
+    *this = ::std::move(from);
+  }
+
+  inline IsAvailable& operator=(const IsAvailable& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline IsAvailable& operator=(IsAvailable&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const IsAvailable& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const IsAvailable* internal_default_instance() {
+    return reinterpret_cast<const IsAvailable*>(
+               &_IsAvailable_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(IsAvailable& a, IsAvailable& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(IsAvailable* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(IsAvailable* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline IsAvailable* New() const final {
+    return CreateMaybeMessage<IsAvailable>(nullptr);
+  }
+
+  IsAvailable* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<IsAvailable>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const IsAvailable& from);
+  void MergeFrom(const IsAvailable& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(IsAvailable* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "routing.IsAvailable";
+  }
+  protected:
+  explicit IsAvailable(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_service_2eproto);
+    return ::descriptor_table_service_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIsAvailableFieldNumber = 1,
+  };
+  // bool IsAvailable = 1;
+  void clear_isavailable();
+  bool isavailable() const;
+  void set_isavailable(bool value);
+  private:
+  bool _internal_isavailable() const;
+  void _internal_set_isavailable(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:routing.IsAvailable)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  bool isavailable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_service_2eproto;
+};
+// -------------------------------------------------------------------
 
 class InferenceRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:routing.InferenceRequest) */ {
@@ -112,7 +254,7 @@ class InferenceRequest PROTOBUF_FINAL :
                &_InferenceRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(InferenceRequest& a, InferenceRequest& b) {
     a.Swap(&b);
@@ -265,7 +407,7 @@ class InferenceResponse PROTOBUF_FINAL :
                &_InferenceResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(InferenceResponse& a, InferenceResponse& b) {
     a.Swap(&b);
@@ -383,6 +525,30 @@ class InferenceResponse PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// IsAvailable
+
+// bool IsAvailable = 1;
+inline void IsAvailable::clear_isavailable() {
+  isavailable_ = false;
+}
+inline bool IsAvailable::_internal_isavailable() const {
+  return isavailable_;
+}
+inline bool IsAvailable::isavailable() const {
+  // @@protoc_insertion_point(field_get:routing.IsAvailable.IsAvailable)
+  return _internal_isavailable();
+}
+inline void IsAvailable::_internal_set_isavailable(bool value) {
+  
+  isavailable_ = value;
+}
+inline void IsAvailable::set_isavailable(bool value) {
+  _internal_set_isavailable(value);
+  // @@protoc_insertion_point(field_set:routing.IsAvailable.IsAvailable)
+}
+
+// -------------------------------------------------------------------
+
 // InferenceRequest
 
 // bytes file = 1;
@@ -554,6 +720,8 @@ inline void InferenceResponse::unsafe_arena_set_allocated_number(
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 
