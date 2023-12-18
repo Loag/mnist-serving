@@ -45,7 +45,4 @@ go build -o dist main.go
 
 # model
 python mnist.py # model output in model dir
-
-# check input and output names
-python model_check.py
 ```
