@@ -33,3 +33,19 @@ protoc --cpp_out=. *.proto
 # build golang bindings
 protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative *.proto
 ```
+
+## build 
+
+``` bash
+# backend
+cd /backend/build && make
+
+# frontend
+go build -o dist main.go
+
+# model
+python mnist.py # model output in model dir
+
+# check input and output names
+python model_check.py
+```
