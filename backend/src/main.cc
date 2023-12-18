@@ -1,22 +1,23 @@
 #include <iostream>
 #include "onnxruntime/onnxruntime_cxx_api.h"
+#include <grpcpp/grpcpp.h>
 #include "service.pb.h"
 #include "service.grpc.pb.h"
-#include <grpcpp/grpcpp.h>
 
 using namespace std;
 using namespace routing;
 
-const ORTCHAR_T* model_path = "mnist.onnx"; // Replace "model.onnx" with the actual model file path
+const ORTCHAR_T* model_path = "mnist.onnx"; // Replace with the actual model file path
+
 Ort::Session session_{nullptr};
 auto memory_info = Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeCPU);
 
 static void softmax(std::array<float, 10>& input) {
-  float rowmax = *std::max_element(input.begin(), input.end());
-  std::vector<float> y(input.size());
+  float rowmax = *max_element(input.begin(), input.end());
+  vector<float> y(input.size());
   float sum = 0.0f;
   for (size_t i = 0; i != input.size(); ++i) {
-    sum += y[i] = std::exp(input[i] - rowmax);
+    sum += y[i] = exp(input[i] - rowmax);
   }
   for (size_t i = 0; i != input.size(); ++i) {
     input[i] = y[i] / sum;
@@ -83,10 +84,9 @@ void RunServer() {
     server->Wait();
 }
 
-
 int main(int argc, char* argv[]) {
     try {
-        Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "Default");
+        Ort::Env env(ORT_LOGGING_LEVEL_INFO, "Default");
 
         Ort::SessionOptions session_options;
         session_options.SetIntraOpNumThreads(1);

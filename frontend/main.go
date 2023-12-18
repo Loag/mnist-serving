@@ -12,14 +12,15 @@ import (
 )
 
 func to_bytes(img image.Image) []byte {
-	// Convert the image to a byte slice
 	bounds := img.Bounds()
 	width, height := bounds.Max.X, bounds.Max.Y
+
 	imgBytes := make([]byte, 0, width*height*3) // 3 bytes for each pixel in RGB
 
 	for y := 0; y < height; y++ {
 		for x := 0; x < width; x++ {
 			r, g, b, _ := img.At(x, y).RGBA()
+			
 			// Convert 16-bit color to 8-bit color
 			imgBytes = append(imgBytes, byte(r>>8), byte(g>>8), byte(b>>8))
 		}
